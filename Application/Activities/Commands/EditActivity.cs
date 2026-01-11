@@ -19,7 +19,7 @@ public class EditActivity
         {
            var activity = await context.Activities
            .FindAsync([request.Activity.Id], cancellationToken)
-           ?? throw new Exeption ("Cannot find activity");
+           ?? throw new Exception ("Cannot find activity");
            
           mapper.Map(request.Activity, activity);
 
@@ -29,18 +29,3 @@ public class EditActivity
 
 }
 
-[Serializable]
-internal class Exeption : Exception
-{
-    public Exeption()
-    {
-    }
-
-    public Exeption(string? message) : base(message)
-    {
-    }
-
-    public Exeption(string? message, Exception? innerException) : base(message, innerException)
-    {
-    }
-}
